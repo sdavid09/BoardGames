@@ -13,17 +13,15 @@ class Board(object):
         for i in range( 0, self.ysize):
             self.board.append(["0"]*self.xsize)
         self.createGrid()
-        self.board[0][0] = ' '
         self.setBoardPieces()
 
     def createGrid(self):
         """Create a Grid Reference Row are Alphabets and Columns by Number"""
         k = 0
         for i in range(1, self.xsize):
-            self.board[0][i] = chr( ord('a') + k)
+            self.board[8][i] = chr( ord('a') + k) # x axis of alphabet
+            self.board[k][0] = str(i) # y axis of numbers
             k+=1
-        for i in range(1, self.ysize):
-            self.board[i][0] = str(i)
 
     def setBoardPieces(self): 
         print "Board:"

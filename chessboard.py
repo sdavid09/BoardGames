@@ -25,27 +25,28 @@ class ChessBoard(Board):
 
     def setStartingPieces(self):
 #Setup Black Pieces
-        self.board[1][1] = blackpieces['Rook']
-        self.board[1][8] = blackpieces['Rook']
-        self.board[1][2] = blackpieces['Knight']
-        self.board[1][7] = blackpieces['Knight']
-        self.board[1][3] = blackpieces['Bishop']
-        self.board[1][6] = blackpieces['Bishop']
-        self.board[1][4] = blackpieces['Queen']
-        self.board[1][5] = blackpieces['King']
+        self.board[0][1] = blackpieces['Rook']
+        self.board[0][8] = blackpieces['Rook']
+        self.board[0][2] = blackpieces['Knight']
+        self.board[0][7] = blackpieces['Knight']
+        self.board[0][3] = blackpieces['Bishop']
+        self.board[0][6] = blackpieces['Bishop']
+        self.board[0][4] = blackpieces['Queen']
+        self.board[0][5] = blackpieces['King']
         for i in range(1,9):
-            self.board[2][i] = blackpieces['Pawn']
+            self.board[1][i] = blackpieces['Pawn']
 #Setup White Pieces
-        self.board[8][1] = whitepieces['Rook']
-        self.board[8][8] = whitepieces['Rook']
-        self.board[8][2] = whitepieces['Knight']
-        self.board[8][7] = whitepieces['Knight']
-        self.board[8][3] = whitepieces['Bishop']
-        self.board[8][6] = whitepieces['Bishop']
-        self.board[8][4] = whitepieces['Queen']
-        self.board[8][5] = whitepieces['King']
+        self.board[7][1] = whitepieces['Rook']
+        self.board[7][8] = whitepieces['Rook']
+        self.board[7][2] = whitepieces['Knight']
+        self.board[7][7] = whitepieces['Knight']
+        self.board[7][3] = whitepieces['Bishop']
+        self.board[7][6] = whitepieces['Bishop']
+        self.board[7][4] = whitepieces['Queen']
+        self.board[7][5] = whitepieces['King']
         for i in range(1,9):
-            self.board[7][i] = whitepieces['Pawn']
+            self.board[6][i] = whitepieces['Pawn']
+        self.board[8][0] = ' '
 chess = ChessBoard()
 chess.setStartingPieces()
 chess.displayBoard()
