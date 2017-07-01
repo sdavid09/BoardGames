@@ -14,6 +14,7 @@ class Board(object):
             self.board.append(["0"]*self.xsize)
         self.createGrid()
         self.board[0][0] = ' '
+        self.setBoardPieces()
 
     def createGrid(self):
         """Create a Grid Reference Row are Alphabets and Columns by Number"""
@@ -26,7 +27,6 @@ class Board(object):
 
     def setBoardPieces(self): 
         print "Board:"
-        #self.board[3][4] = u'\u2654'
 
     def displayBoard(self):
         """Print out Board"""
