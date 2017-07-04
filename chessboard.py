@@ -20,8 +20,8 @@ blackpieces = {
 }
 
 class ChessBoard(Board):
-    def __init__(self):
-        super(ChessBoard, self).__init__(8, 8) #Chess board is a 8x8 board
+    def __init__(self, xsize = 8, ysize = 8):
+        super(ChessBoard, self).__init__(xsize,ysize) #Chess board is a 8x8 board
 
     def setStartingPieces(self):
 #Setup Black Pieces
@@ -50,3 +50,4 @@ class ChessBoard(Board):
 chess = ChessBoard()
 chess.setStartingPieces()
 chess.displayBoard()
+chess.moveBoardPieces()
