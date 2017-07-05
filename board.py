@@ -13,6 +13,10 @@ class Board(object):
         self.board_alphakey = {}
         self.board_numkey = {}
         self.setupBoard()
+        self.player = 0
+        self.p1pieces = {}
+        self.p2pieces = {}
+        self.playerturn = 0
 
     def setupBoard(self):
         """Setup Board"""
@@ -35,8 +39,6 @@ class Board(object):
         print self.board_numkey 
         print self.board_alphakey
 
-   # def mapBoardKeyValues(self, x_row, y_row): 
-        #if y_row in self.board_alphakey and x_row in self.board_numkey:
 
     def moveBoardPieces(self): 
         """Accept User input and move pieces on that grid reference"""
@@ -56,16 +58,27 @@ class Board(object):
                     if y_row in self.board_alphakey and x_row in self.board_numkey:
                         y_row_n = self.board_alphakey[y_row]
                         x_row_n = self.board_numkey[x_row]
-                        if y2_row in self.board_alphakey and x2_row in self.board_numkey:
-                            print " X-value: %s Y-Value: %s\n" %(x_row_n, y_row_n)
-                            y2_row_n = self.board_alphakey[y2_row]
-                            x2_row_n = self.board_numkey[x2_row]
-                            val = self.board[x_row_n].pop(y_row_n)
-                            self.board[x_row_n].insert(y_row_n,'0')
-                            self.board[x2_row_n].pop(y2_row_n)
-                            self.board[x2_row_n].insert(y2_row_n,val)
-                            self.displayBoard()
-                    else:
+                        if self.board[x_row_n][y_row_n] != '0':
+                            if self.board[x_row_n][y_row_n] in self.p1pieces.values():
+                                print "Player 1 Selected \n"
+                                self.player =1 
+                            else:
+                                print "Player 2 Selected \n"
+                                self.player =2 
+                            if y2_row in self.board_alphakey and x2_row in self.board_numkey:
+                                print " X-value: %s Y-Value: %s\n" %(x_row_n, y_row_n)
+                                y2_row_n = self.board_alphakey[y2_row]
+                                x2_row_n = self.board_numkey[x2_row]
+                                if (self.player == 1 and self.board[x2_row_n][y2_row_n] not in self.p1pieces.values()) or (self.player ==2 and self.board[x2_row_n][y2_row_n] not in self.p2pieces.values()) :
+                                    val = self.board[x_row_n].pop(y_row_n)
+                                    self.board[x_row_n].insert(y_row_n,'0')
+                                    self.board[x2_row_n].pop(y2_row_n)
+                                    self.board[x2_row_n].insert(y2_row_n,val)
+                                    self.displayBoard()
+                                else:
+                                    print "Player's piece occupying\n"
+                                    continue
+                    else    :    
                         print "Out of Board Range \n"
                 else:
                     print "Invalid Input \n"
