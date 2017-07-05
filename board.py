@@ -16,6 +16,7 @@ class Board(object):
         self.player = 0
         self.p1pieces = {}
         self.p2pieces = {}
+        self.vldmove = {}
         self.playerturn = 0
 
     def setupBoard(self):
@@ -39,6 +40,17 @@ class Board(object):
         print self.board_numkey 
         print self.board_alphakey
 
+    def checkValidMove(self, piece, x1 , y1 , x2 , y2 ):
+        if piece == u'\u2654' or piece == u'\u265A':
+            print "KING!\n"
+            valid = False
+            for key, value in self.vldmove.items():
+                for x,y in value:
+                    print x,y
+                    if (x1 + x) == x2 and (y1 + y) == y2:
+                        return True
+                
+            return valid
 
     def moveBoardPieces(self): 
         """Accept User input and move pieces on that grid reference"""
@@ -70,11 +82,12 @@ class Board(object):
                                 y2_row_n = self.board_alphakey[y2_row]
                                 x2_row_n = self.board_numkey[x2_row]
                                 if (self.player == 1 and self.board[x2_row_n][y2_row_n] not in self.p1pieces.values()) or (self.player ==2 and self.board[x2_row_n][y2_row_n] not in self.p2pieces.values()) :
-                                    val = self.board[x_row_n].pop(y_row_n)
-                                    self.board[x_row_n].insert(y_row_n,'0')
-                                    self.board[x2_row_n].pop(y2_row_n)
-                                    self.board[x2_row_n].insert(y2_row_n,val)
-                                    self.displayBoard()
+                                    if self.checkValidMove(self.board[x_row_n][y_row_n],x_row_n, y_row_n, x2_row_n, y2_row_n):
+                                        val = self.board[x_row_n].pop(y_row_n)
+                                        self.board[x_row_n].insert(y_row_n,'0')
+                                        self.board[x2_row_n].pop(y2_row_n)
+                                        self.board[x2_row_n].insert(y2_row_n,val)
+                                        self.displayBoard()
                                 else:
                                     print "Player's piece occupying\n"
                                     continue

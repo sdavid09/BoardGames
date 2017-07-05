@@ -18,12 +18,23 @@ blackpieces = {
     'BKnight' : u'\u265E',
     'BPawn'   : u'\u265F',
 }
+validMove = {
+   
+    'King'   : [[1,1],[-1,-1],[-1,0],[0,-1]],
+    'Queen'  : '', 
+    'Rook'   : '',
+    'Bishop' : '',
+    'Knight' : '',
+    'Pawn'   :     '',
 
-class ChessBoard(Board):
+}
+
+class ChessBoard (Board):
     def __init__(self, xsize = 8, ysize = 8):
         super(ChessBoard, self).__init__(xsize,ysize) #Chess board is a 8x8 board
         self.p1pieces = whitepieces
         self.p2pieces = blackpieces
+        self.vldmove = validMove
         
     def setStartingPieces(self):
 #Setup Black Pieces
@@ -35,8 +46,8 @@ class ChessBoard(Board):
         self.board[0][6] = blackpieces['BBishop']
         self.board[0][4] = blackpieces['BQueen']
         self.board[0][5] = blackpieces['BKing']
-        for i in range(1,9):
-            self.board[1][i] = blackpieces['BPawn']
+        #for i in range(1,9):
+        #    self.board[1][i] = blackpieces['BPawn']
 #Setup White Pieces
         self.board[7][1] = whitepieces['WRook']
         self.board[7][8] = whitepieces['WRook']
@@ -46,8 +57,8 @@ class ChessBoard(Board):
         self.board[7][6] = whitepieces['WBishop']
         self.board[7][4] = whitepieces['WQueen']
         self.board[7][5] = whitepieces['WKing']
-        for i in range(1,9):
-            self.board[6][i] = whitepieces['WPawn']
+        #for i in range(1,9):
+        #    self.board[6][i] = whitepieces['WPawn']
         self.board[8][0] = ' '
 chess = ChessBoard()
 chess.setStartingPieces()
