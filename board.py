@@ -16,8 +16,7 @@ class Board(object):
 
     def setupBoard(self):
         """Setup Board"""
-        for i in range( 0, self.ysize):
-            self.board.append(["0"] * self.xsize )
+        self.board = [['0' for x in range(self.xsize)] for y in range(self.ysize)] # Create 2d Array
         self.createGrid()
 
     def createGrid(self):
@@ -33,29 +32,43 @@ class Board(object):
             if y != 0:
                 self.board_numkey[y] = abs( y - self.col)
             y -= 1
-        print self.board_numkey
- 
+        print self.board_numkey 
+        print self.board_alphakey
+
+   # def mapBoardKeyValues(self, x_row, y_row): 
+        #if y_row in self.board_alphakey and x_row in self.board_numkey:
+
     def moveBoardPieces(self): 
-        """Move the Board Pieces"""
+        """Accept User input and move pieces on that grid reference"""
+        result = False
         while True:
             user_input = raw_input("Enter Board Space: ")
-            board_pattern = re.compile(r'([a-zA-Z])([0-9]+)')
-            result = board_pattern.search(user_input)
-            if(result):
-                y_row = result.group(1) #alpha values
-                x_row = int(result.group(2)) # num value
-                if y_row in self.board_alphakey and x_row in self.board_numkey:
-                    y1_row = self.board_alphakey[y_row]
-                    x1_row = self.board_numkey[x_row]
-                    print " X-value: %s Y-Value: %s\n" %(x1_row, y1_row)
-                    self.board[x1_row][y1_row] = "X"
-                    self.displayBoard()
-                else:
-                    print "Out of Board Range \n"
-            elif user_input == "exit":
+            if user_input == "exit":
                 break
             else:
-                print "Invalid Input \n"
+                board_pattern = re.compile(r'(^[a-z])([0-9])\s([a-z])([0-9]$)') # pattern can still have a3e2 as valid
+                result = board_pattern.search(user_input)
+                if(result):
+                    y_row = result.group(1) #alpha values
+                    x_row = int(result.group(2)) # num value
+                    y2_row = result.group(3)
+                    x2_row = int(result.group(4))
+                    if y_row in self.board_alphakey and x_row in self.board_numkey:
+                        y_row_n = self.board_alphakey[y_row]
+                        x_row_n = self.board_numkey[x_row]
+                        if y2_row in self.board_alphakey and x2_row in self.board_numkey:
+                            print " X-value: %s Y-Value: %s\n" %(x_row_n, y_row_n)
+                            y2_row_n = self.board_alphakey[y2_row]
+                            x2_row_n = self.board_numkey[x2_row]
+                            val = self.board[x_row_n].pop(y_row_n)
+                            self.board[x_row_n].insert(y_row_n,'0')
+                            self.board[x2_row_n].pop(y2_row_n)
+                            self.board[x2_row_n].insert(y2_row_n,val)
+                            self.displayBoard()
+                    else:
+                        print "Out of Board Range \n"
+                else:
+                    print "Invalid Input \n"
 
     def displayBoard(self):
         """Print out Board"""
