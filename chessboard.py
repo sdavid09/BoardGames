@@ -20,20 +20,28 @@ blackpieces = {
 }
 validMove = {
    
-    'King'   : [[1,1],[-1,-1],[-1,0],[0,-1]],
+    'King'   : [[1,1],[-1,-1],[-1,0],[0,-1],[1,0],[-1,1],[0,1],[1,-1]],
     'Queen'  : '', 
-    'Rook'   : '',
+    'Rook'   : [[x,0] for x in range (0, 8)],
     'Bishop' : '',
     'Knight' : '',
-    'Pawn'   :     '',
+    'Pawn'   : '',
 
 }
+#Additional valid moves for Rook
+validMove['Rook'] += [[0,y] for y in range (0, 8)]
+validMove['Rook'] += [[x,0] for x in range (-8, 0)]
+validMove['Rook'] += [[x,0] for x in range (0, -8)]
+validMove['Rook'] += [[0,y] for y in range (0, -8)]
+validMove['Rook'] += [[0,y] for y in range (-8, 0)]
+
 
 class ChessBoard (Board):
     def __init__(self, xsize = 8, ysize = 8):
         super(ChessBoard, self).__init__(xsize,ysize) #Chess board is a 8x8 board
         self.p1pieces = whitepieces
         self.p2pieces = blackpieces
+        self.pieces = dict(whitepieces.items() + blackpieces.items())
         self.vldmove = validMove
         
     def setStartingPieces(self):
@@ -60,8 +68,4 @@ class ChessBoard (Board):
         #for i in range(1,9):
         #    self.board[6][i] = whitepieces['WPawn']
         self.board[8][0] = ' '
-chess = ChessBoard()
-chess.setStartingPieces()
-chess.displayBoard()
-chess.moveBoardPieces()
 
