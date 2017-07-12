@@ -24,7 +24,7 @@ validMove = {
     'Queen'  : '', 
     'Rook'   : [[x,0] for x in range (0, 8)],
     'Bishop' : '',
-    'Knight' : '',
+    'Knight' : [[1,2],[-1,2],[1,-2],[2,1],[-2,-1],[2,-1],[-2,1]],
     'Pawn'   : '',
 
 }
