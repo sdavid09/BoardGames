@@ -2,6 +2,8 @@
 
 
 import re
+import os
+import sys
 from chessboard import *
 
 class Game ( object):
@@ -17,7 +19,7 @@ class Game ( object):
             print "x1: %s, y1: %s, x2: %s, y3: %s" %(str(x1), str(y1), str(x2), str(y2))
             for key1, val in game.pieces.items():
                 if val == piece:
-                    print "Found Piece! %s %s" %( key1[1:], val)
+                    #print "Found Piece! %s %s" %( key1[1:], val)
                     break
             piece = key1[1:]
             for key, value in game.vldmove.items():
@@ -37,7 +39,7 @@ class Game ( object):
             if user_input == "exit":
                 break
             else:
-                board_pattern = re.compile(r'(^[a-z])([0-9])\s([a-z])([0-9]$)') # pattern can still have a3e2 as valid
+                board_pattern = re.compile(r'(^[a-z])([0-9])\s?([a-z])([0-9]$)') # pattern can still have a3e2 as valid
                 result = board_pattern.search(user_input)
                 if(result):
                     y_row = result.group(1) #alpha values
@@ -65,6 +67,8 @@ class Game ( object):
                                         game.board[x2_row_n].pop(y2_row_n)
                                         game.board[x2_row_n].insert(y2_row_n,val)
                                         game.displayBoard()
+                                    else: 
+                                        print "Invalid Move!\n"
                                 else:
                                     print "Player's piece occupying\n"
                                     continue

@@ -1,5 +1,6 @@
 #!/usr/bin/python
-
+import time
+import os
 
 class Board(object):
 
@@ -37,5 +38,8 @@ class Board(object):
 
     def displayBoard(self):
         """Print out Board"""
+        for i in xrange (5):
+            time.sleep(.1)
+        os.system("clear")
         for row in self.board:
             print" ".join(row)

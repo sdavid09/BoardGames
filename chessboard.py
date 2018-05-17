@@ -25,7 +25,7 @@ validMove = {
     'Rook'   : [[x,0] for x in range (0, 8)],
     'Bishop' : '',
     'Knight' : [[1,2],[-1,2],[1,-2],[2,1],[-2,-1],[2,-1],[-2,1]],
-    'Pawn'   : '',
+    'Pawn'   : [[1, 0] , [-1, 0]] ,
 
 }
 #Additional valid moves for Rook
@@ -54,8 +54,8 @@ class ChessBoard (Board):
         self.board[0][6] = blackpieces['BBishop']
         self.board[0][4] = blackpieces['BQueen']
         self.board[0][5] = blackpieces['BKing']
-        #for i in range(1,9):
-        #    self.board[1][i] = blackpieces['BPawn']
+        for i in range(1,9):
+            self.board[1][i] = blackpieces['BPawn']
 #Setup White Pieces
         self.board[7][1] = whitepieces['WRook']
         self.board[7][8] = whitepieces['WRook']
@@ -65,7 +65,7 @@ class ChessBoard (Board):
         self.board[7][6] = whitepieces['WBishop']
         self.board[7][4] = whitepieces['WQueen']
         self.board[7][5] = whitepieces['WKing']
-        #for i in range(1,9):
-        #    self.board[6][i] = whitepieces['WPawn']
+        for i in range(1,9):
+            self.board[6][i] = whitepieces['WPawn']
         self.board[8][0] = ' '
 
