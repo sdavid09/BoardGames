@@ -16,7 +16,7 @@ class Game ( object):
 
     def checkValidMove(self, game, piece, x1, y1, x2, y2 ):
             valid = False
-            print "x1: %s, y1: %s, x2: %s, y3: %s" %(str(x1), str(y1), str(x2), str(y2))
+            print ("x1: {}, y1: {}, x2: {}, y3: {}".format(str(x1), str(y1), str(x2), str(y2)))
             for key1, val in game.pieces.items():
                 if val == piece:
                     #print "Found Piece! %s %s" %( key1[1:], val)
@@ -35,7 +35,7 @@ class Game ( object):
         """Accept User input and move pieces on that grid reference"""
         result = False
         while True:
-            user_input = raw_input("Enter Board Space: ")
+            user_input = input("Enter Board Space: ")
             if user_input == "exit":
                 break
             else:
@@ -51,13 +51,13 @@ class Game ( object):
                         x_row_n = game.board_numkey[x_row]
                         if game.board[x_row_n][y_row_n] != '0':
                             if game.board[x_row_n][y_row_n] in game.p1pieces.values():
-                                print "Player 1 Selected \n"
+                                print ("Player 1 Selected \n")
                                 self.player =1 
                             else:
-                                print "Player 2 Selected \n"
+                                print( "Player 2 Selected \n")
                                 self.player =2 
                             if y2_row in game.board_alphakey and x2_row in game.board_numkey:
-                                print " X-value: %s Y-Value: %s\n" %(x_row_n, y_row_n)
+                                print (" X-value: {} Y-Value: {} \n".format(x_row_n, y_row_n))
                                 y2_row_n = game.board_alphakey[y2_row]
                                 x2_row_n = game.board_numkey[x2_row]
                                 if (self.player == 1 and game.board[x2_row_n][y2_row_n] not in game.p1pieces.values()) or (self.player ==2 and game.board[x2_row_n][y2_row_n] not in game.p2pieces.values()) :
@@ -68,14 +68,14 @@ class Game ( object):
                                         game.board[x2_row_n].insert(y2_row_n,val)
                                         game.displayBoard()
                                     else: 
-                                        print "Invalid Move!\n"
+                                        print ("Invalid Move!\n")
                                 else:
-                                    print "Player's piece occupying\n"
+                                    print ("Player's piece occupying\n")
                                     continue
                     else    :    
-                        print "Out of Board Range \n"
+                        print ("Out of Board Range \n")
                 else:
-                    print "Invalid Input \n"
+                    print ("Invalid Input \n")
 
 
 chess = ChessBoard()

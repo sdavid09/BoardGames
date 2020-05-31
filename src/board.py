@@ -32,14 +32,14 @@ class Board(object):
             if y != 0:
                 self.board_numkey[y] = abs( y - self.col)
             y -= 1
-        print self.board_numkey 
-        print self.board_alphakey
+        print (self.board_numkey )
+        print (self.board_alphakey)
 
 
     def displayBoard(self):
         """Print out Board"""
-        for i in xrange (5):
+        for i in range (5):
             time.sleep(.1)
         os.system("clear")
         for row in self.board:
-            print" ".join(row)
+            print(" ".join(row))

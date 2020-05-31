@@ -41,7 +41,7 @@ class ChessBoard (Board):
         super(ChessBoard, self).__init__(xsize,ysize) #Chess board is a 8x8 board
         self.p1pieces = whitepieces
         self.p2pieces = blackpieces
-        self.pieces = dict(whitepieces.items() + blackpieces.items())
+        self.pieces = dict(whitepieces, **blackpieces)
         self.vldmove = validMove
         
     def setStartingPieces(self):
