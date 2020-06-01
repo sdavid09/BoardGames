@@ -1,2 +1,6 @@
+from abc import ABC, abstractmethod
+
 class Display:
-    pass
+    @abstractmethod
+    def display(self):
+        pass
