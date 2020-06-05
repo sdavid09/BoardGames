@@ -40,6 +40,9 @@ class GridTest(unittest.TestCase):
     def test_get_entire_board(self):
         # get entire row of grid
         grid = Grid(3, 3, "*")
-        self.assertEqual(str(grid), "[['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]")
+        board = ("* * * \n"
+                 "* * * \n"
+                 "* * * ")
+        self.assertEqual(str(grid), board)
 
 
