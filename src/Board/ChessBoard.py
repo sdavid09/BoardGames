@@ -1,3 +1,5 @@
+from .Grid import Grid
+
 whitepieces = {
     'WKing'   : u'\u2654',
     'WQueen'  : u'\u2655',
@@ -16,8 +18,13 @@ blackpieces = {
     'BPawn'   : u'\u265F',
 }
 
+class ChessBoard:
+    def __init__(self):
+        self.board = Grid(8,8)
 
+    def __len__(self):
+        return len(self.board)
 
-class ChessBoard (Board):
-    pass
+    def __repr__(self):
+        return repr(self.board)
 
