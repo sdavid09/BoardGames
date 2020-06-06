@@ -16,6 +16,5 @@ class Grid:
         self._grid[index] = value
 
     def __repr__(self):
-        return "\n".join([''.join(['{:2}'
-                   .format(item) for item in row])
-                                    for row in self._grid])
+        return "\n".join([''.join(['{:2}'.format(item) for item in row])
+                                                        for row in self._grid])
