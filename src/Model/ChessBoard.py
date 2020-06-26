@@ -51,7 +51,7 @@ class ChessBoard:
         return len(self.board)
 
     def __repr__(self):
-        top_bar = ''.join([' '] * 2 + ['{:^2}'.format(item) for item in self.row.keys()])
+        top_bar = ''.join([' '] * 2 + ['{:^2}'.format(item) for item in sorted(self.row.keys())])
         board = []
         board +=  [''.join(['{:2}'.format(item) for item in row ]) for row in self.board]
         board_with_numbers = []
@@ -61,6 +61,15 @@ class ChessBoard:
             count-=1
 
         row = "\n".join(board_with_numbers)
-        return  top_bar + "\n" + row + "\n" + top_bar
+        return  "\n" + top_bar + "\n" + row + "\n" + top_bar
+    
+    def setup_initial_pieces(self):
+        # row of pawns at 2nd row and 6th row
+        self.board[0] = ['ROOK', 'HORSE', 'BISHOP', 'QUEEN', 'KING', 'BISHOP', 'HORSE', 'ROOK'] 
+        self.board[1] = ["PAWN"] * len(self.board[1])
+        
+        self.board[6] = ["PAWN"] * len(self.board[1])
+        self.board[7] = ['ROOK', 'HORSE', 'BISHOP', 'QUEEN', 'KING', 'BISHOP', 'HORSE', 'ROOK'] 
+
 
 
