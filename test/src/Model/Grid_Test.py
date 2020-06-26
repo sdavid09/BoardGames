@@ -1,6 +1,6 @@
 import unittest
 
-from src.Board.Grid import Grid
+from src.Model.Grid import Grid
 
 class GridTest(unittest.TestCase):
     def test_grid_size_10x10(self):
