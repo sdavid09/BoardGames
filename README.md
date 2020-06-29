@@ -1,6 +1,6 @@
 # Board Games
 
-Board Games is a Python library for various types of games: Chess 
+Board Games is a Python library for various types of games: Chess
 
 ## Installation
 

@@ -14,12 +14,4 @@ class ChessBoardTest(unittest.TestCase):
         chess_board['a1'] = rook
         self.assertEqual(chess_board['a1'], rook)
 
-    def test_pieces_starting_location(self):
-        chess_board = ChessBoard()
-        chess_board.setup_initial_pieces()
-
-        self.assertEqual(chess_board[0], ['ROOK', 'HORSE', 'BISHOP', 'QUEEN', 'KING', 'BISHOP', 'HORSE', 'ROOK'] )
-        self.assertEqual(chess_board[1], ['PAWN'] * 8 )
-        self.assertEqual(chess_board[6], ['PAWN'] * 8 )
-        self.assertEqual(chess_board[7], ['ROOK', 'HORSE', 'BISHOP', 'QUEEN', 'KING', 'BISHOP', 'HORSE', 'ROOK'])
 

@@ -62,14 +62,8 @@ class ChessBoard:
 
         row = "\n".join(board_with_numbers)
         return  "\n" + top_bar + "\n" + row + "\n" + top_bar
-    
-    def setup_initial_pieces(self):
-        # row of pawns at 2nd row and 6th row
-        self.board[0] = ['ROOK', 'HORSE', 'BISHOP', 'QUEEN', 'KING', 'BISHOP', 'HORSE', 'ROOK'] 
-        self.board[1] = ["PAWN"] * len(self.board[1])
-        
-        self.board[6] = ["PAWN"] * len(self.board[1])
-        self.board[7] = ['ROOK', 'HORSE', 'BISHOP', 'QUEEN', 'KING', 'BISHOP', 'HORSE', 'ROOK'] 
+
+
 
 
 
