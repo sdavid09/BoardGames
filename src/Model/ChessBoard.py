@@ -22,7 +22,7 @@ class ChessBoard:
     def __init__(self):
         self.board = Grid(8, 8, "*")
         self.row = {'A': 0, 'B': 1, 'C': 2,'D': 3, 'E': 4, 'F': 5,'G': 6, 'H': 7}
-        self.col = {0:8, 1:7, 2:6, 3:5, 4:4, 5:3, 6:2, 7:1}
+        self.col = {1:7, 2:6, 3:5, 4:4, 5:3, 6:2, 7:1, 8:0}
 
     def __setitem__(self, position, value):
         row, col = self.check_chess_notation(position)
