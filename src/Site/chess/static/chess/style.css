@@ -1,0 +1,30 @@
+body {
+    background-color: #25282C;
+}
+
+h1 {
+    color: white;
+}
+.square, .alt-square{
+    width: 11%;
+    background: white;
+    padding-bottom: 11%;
+    float: left;
+    margin: 0.5%;
+
+}
+
+.alt-square:nth-child(3n+1):nth-child(odd){
+    background: black;
+}
+
+.square:nth-child(3n+1){
+    background: black;
+}
+
+
+
+#container {
+    margin: 0 auto;
+    max-width: 400px;
+}

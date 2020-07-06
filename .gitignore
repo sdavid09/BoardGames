@@ -3,3 +3,4 @@
 *.pyc
 .DS_Store
 *.sqlite3
+src/Site/Site/settings.py

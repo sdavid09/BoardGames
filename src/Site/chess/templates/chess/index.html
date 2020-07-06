@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chess</title>
+	{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'chess/style.css' %}">
+</head>
+<body>
+    <h1>CHESS</h1>
+    <div id="container">
+        {% for size in board_size %}
+            {% if size|divisibleby:8 == 0 %}
+                <div class="alt-square"></div>
+            {% else %}
+                <div class="square"></div>
+            {% endif %}
+        {% endfor %}
+	</div>
+</body>
+</html>
