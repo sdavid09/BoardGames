@@ -2,6 +2,7 @@ import unittest
 
 from src.Game.Chess import Chess
 from src.Model.ChessBoard import ChessBoard
+from src.Model.Player import Player
 from src.Model.ChessPiece import *
 
 
@@ -9,7 +10,9 @@ class ChessTest(unittest.TestCase):
 
     def test_setup_first_player(self):
         chessboard = ChessBoard()
-        chess = Chess(chessboard)
+        player_one = Player("PlayerOne", 1)
+        player_two = Player("PlayerTwo", 2)
+        chess = Chess(chessboard, player_one, player_two)
         chess.setup()
         self.assertTrue(isinstance(chess.chessboard['a8'], Rook))
         self.assertTrue(isinstance(chess.chessboard['b8'], Knight))
@@ -23,7 +26,9 @@ class ChessTest(unittest.TestCase):
 
     def test_setup_second_player(self):
         chessboard = ChessBoard()
-        chess = Chess(chessboard)
+        player_one = Player("PlayerOne", 1)
+        player_two = Player("PlayerTwo", 2)
+        chess = Chess(chessboard, player_one, player_two)
         chess.setup()
         self.assertTrue(isinstance(chess.chessboard['a1'], Rook))
         self.assertTrue(isinstance(chess.chessboard['b1'], Knight))

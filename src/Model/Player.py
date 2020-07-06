@@ -1,8 +1,8 @@
 
 class Player:
     def __init__(self, name, value):
-        self.name = name
-        self.value = value
+        self.__name = name
+        self.__value = value
         self.pieces = []
 
     def __repr__(self):

@@ -4,8 +4,11 @@ from src.Model.ChessBoard import ChessBoard
 from src.Model.Player import Player
 
 class Chess:
-    def __init__(self, chessboard: ChessBoard):
+    def __init__(self, chessboard: ChessBoard, 
+                       player_one: Player, player_two: Player):
         self.chessboard = chessboard
+        self.player_one = player_one
+        self.player_two = player_two
 
     def setup(self):
 
