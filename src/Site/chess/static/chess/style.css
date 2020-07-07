@@ -2,10 +2,16 @@ body {
     background-color: #25282C;
 }
 
+.chess-board { border-spacing: 0; border-collapse: collapse; }
+.chess-board th { padding: .5em; color: white}
+.chess-board td { border: 2.5px solid; width: 3em; height: 3em; }
+.chess-board .light { background: #D5D1D0  }
+.chess-board .dark { background: #1d2023}
+
 h1 {
     color: white;
 }
-.square, .alt-square{
+/* .square, .alt-square{
     width: 11%;
     background: white;
     padding-bottom: 11%;
@@ -13,18 +19,8 @@ h1 {
     margin: 0.5%;
 
 }
-
-.alt-square:nth-child(3n+1):nth-child(odd){
-    background: black;
-}
-
-.square:nth-child(3n+1){
-    background: black;
-}
-
-
-
+*/
 #container {
     margin: 0 auto;
     max-width: 400px;
-}
+} 

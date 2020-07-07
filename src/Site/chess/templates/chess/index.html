@@ -8,13 +8,39 @@
 <body>
     <h1>CHESS</h1>
     <div id="container">
-        {% for size in board_size %}
-            {% if size|divisibleby:8 == 0 %}
-                <div class="alt-square"></div>
-            {% else %}
-                <div class="square"></div>
-            {% endif %}
-        {% endfor %}
+        <table class="chess-board">
+            <tbody>
+                <tr>
+                    <th></th>
+                    {% for header in x_header %}
+                    <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                {% for header in y_header %}
+                <tr>
+                    <th>{{ header }}</th>
+                    {% if header|divisibleby:2 == 0 %}
+                        {% for length in y_header %}
+                            {% if length|divisibleby:2 == 0 %}
+                                <td class="light"></td>
+                            {% else %}
+                                <td class="dark"></td>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                    {% for length in y_header %}
+                        {% if length|divisibleby:2 == 0 %}
+                            <td class="dark"></td>
+                        {% else %}
+                            <td class="light"></td>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
 	</div>
 </body>
 </html>

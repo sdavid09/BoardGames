@@ -12,7 +12,10 @@ pipenv install --dev
 
 ## Usage
 
-```
+```bash
+Mac:
+python3 -m pipenv shell
+
 ```
 ## Tests
 ```bash
