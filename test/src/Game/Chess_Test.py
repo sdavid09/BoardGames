@@ -1,6 +1,6 @@
 import unittest
 
-from src.Game.Chess import Chess
+from src.GameTrue.Chess import Chess
 from src.Model.ChessBoard import ChessBoard
 from src.Model.Player import Player
 from src.Model.ChessPiece import *
