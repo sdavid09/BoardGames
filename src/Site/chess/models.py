@@ -20,7 +20,7 @@ class Board(models.Model):
     pieces = models.ManyToManyField(Piece)
 
 class Game(models.Model):
-    session = models.CharField(max_length=50, primary_key=True)
+    session = models.CharField(max_length=50)
     player_one = models.ForeignKey(Player, related_name="player_one", on_delete=models.CASCADE)
     player_two = models.ForeignKey(Player, related_name="player_two", on_delete=models.CASCADE)
-    board = models.ForeignKey(Board, on_delete=models.CASCADE)
+    board = models.ForeignKey(Board, related_name="board", on_delete=models.CASCADE)

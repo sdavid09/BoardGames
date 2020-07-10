@@ -8,6 +8,10 @@
 <body>
     <h1>CHESS</h1>
     <div id="container">
+        {{ game.player_one.name }}
+        {% for chess_piece in pieces %}
+            {{ chess_piece.icon }}
+        {% endfor %}
         <table class="chess-board">
             <tbody>
                 <tr>
