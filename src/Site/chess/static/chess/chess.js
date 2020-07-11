@@ -34,11 +34,14 @@ addFirstPlayerPieces();
 addSecondPlayerPieces()
 
 let table = document.querySelector("table")
-let firstPick;
+let firstPick = false;
+let secondPick;
 let turn = false;
 
 table.addEventListener("click", function(e){
-    if(event.target.matches('td') && !turn){
+
+
+    if(event.target.matches('td') && !turn && !firstPick && event.target.textContent.length){
         all_classes = event.target.getAttribute("class")
         player_class = all_classes.split(" ")[1]
         firstPick = {"icon" : event.target.textContent,
@@ -46,7 +49,7 @@ table.addEventListener("click", function(e){
                     "element": event.target}
         turn = true;
     }
-    else if (event.target.matches('td') && turn) {
+    else if (event.target.matches('td') && turn && firstPick ) {
         all_classes = event.target.getAttribute("class").split(" ")
         if( all_classes.length > 1 ){
             event.target.classList.remove(all_classes[1])
@@ -54,6 +57,7 @@ table.addEventListener("click", function(e){
         event.target.textContent = firstPick["icon"];
         event.target.classList.add(firstPick["class"])
         firstPick["element"].textContent = "";
+        firstPick = false;
         turn = false;
     }
 
