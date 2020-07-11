@@ -16,3 +16,27 @@ h1 {
     margin: 0 auto;
     max-width: 400px;
 } 
+.player-one-pieces {
+    color: white;
+    text-shadow: 1px 1px #EEEBEA
+    margin : 0 auto;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+
+}
+
+.player-two-pieces {
+    color: #393432;
+   text-shadow: 1px 1px #6B615F;
+    margin : 0 auto;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+
+}
+
+td {
+    text-align: center;
+    font-size: 18px;
+}
