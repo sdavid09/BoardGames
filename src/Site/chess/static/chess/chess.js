@@ -1,5 +1,3 @@
-// alert(pieces)
-
 function addFirstPlayerPieces() {
     piece_row = ['A1', 'B1', 'C1', 'D1', 'E1', 'F1', 'G1', 'H1']
     pieces = ['\u2656', '\u2658', '\u2657', '\u2655', '\u2654', '\u2657','\u2658', '\u2656']
@@ -34,3 +32,29 @@ function addSecondPlayerPieces() {
 }
 addFirstPlayerPieces();
 addSecondPlayerPieces()
+
+let table = document.querySelector("table")
+let firstPick;
+let turn = false;
+
+table.addEventListener("click", function(e){
+    if(event.target.matches('td') && !turn){
+        all_classes = event.target.getAttribute("class")
+        player_class = all_classes.split(" ")[1]
+        firstPick = {"icon" : event.target.textContent,
+                    "class": player_class,
+                    "element": event.target}
+        turn = true;
+    }
+    else if (event.target.matches('td') && turn) {
+        all_classes = event.target.getAttribute("class").split(" ")
+        if( all_classes.length > 1 ){
+            event.target.classList.remove(all_classes[1])
+        }
+        event.target.textContent = firstPick["icon"];
+        event.target.classList.add(firstPick["class"])
+        firstPick["element"].textContent = "";
+        turn = false;
+    }
+
+});
