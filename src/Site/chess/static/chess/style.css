@@ -36,15 +36,16 @@ h1 {
 
 }
 
-td {
+td, th {
     text-align: center;
     font-size: 18px;
 }
 
 
-.table-hover > tbody > tr:hover {
+
+.table-hover > tbody > tr > tr:hover, th:hover {
     background-color: #D2D2D2;
-  }
+}
 
   .table-hover > tbody > tr > td:hover {
     border: 3px solid;

@@ -40,7 +40,6 @@ let turn = false;
 
 table.addEventListener("click", function(e){
 
-
     if(event.target.matches('td') && !turn && !firstPick && event.target.textContent.length){
         all_classes = event.target.getAttribute("class")
         player_class = all_classes.split(" ")[1]
@@ -49,16 +48,17 @@ table.addEventListener("click", function(e){
                     "element": event.target}
         turn = true;
     }
-    else if (event.target.matches('td') && turn && firstPick ) {
-        all_classes = event.target.getAttribute("class").split(" ")
-        if( all_classes.length > 1 ){
-            event.target.classList.remove(all_classes[1])
+    else if (event.target.matches('td') && turn && firstPick ) { 
+        if(event.target.textContent !== firstPick["element"].textContent){
+            all_classes = event.target.getAttribute("class").split(" ")
+            if( all_classes.length > 1 ){
+                event.target.classList.remove(all_classes[1])
+            }
+            event.target.textContent = firstPick["icon"];
+            event.target.classList.add(firstPick["class"])
+            firstPick["element"].textContent = "";
         }
-        event.target.textContent = firstPick["icon"];
-        event.target.classList.add(firstPick["class"])
-        firstPick["element"].textContent = "";
         firstPick = false;
         turn = false;
     }
-
 });
