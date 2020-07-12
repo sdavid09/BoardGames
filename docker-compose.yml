@@ -2,14 +2,13 @@ version: '3'
 services:
   boardgames:
     image: boardgames:latest
-    command: sh -c "pipenv shell && 
-                    python src/Site/manage.py makemigrations && 
-                    python src/Site/manage.py migrate && 
-                    gunicorn src/Site/board_games.wsgi:application --bind 0.0.0.0:8001"
+    command: sh -c "python manage.py makemigrations && 
+                    python manage.py migrate && 
+                    gunicorn Site.wsgi:application --bind 0.0.0.0:8001"
     expose:
-        - 8001
+      - 8001
     volumes:
-      - .:/usr/local/app
+      - ./src/Site:/usr/local/app
     container_name: boardgames
   nginx:
     image: nginxcustom:latest
