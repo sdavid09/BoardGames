@@ -1,7 +1,7 @@
 # Board Games
-Board Games is a web app to play your favorite games! 
+Board Games is a web app to play games with friends. 
 Supported Games:
-    * Chess
+* Chess
 
 ## Installation
 Use the package manager [pipenv](https://pypi.org/project/pipenv/) to install dependencies.
