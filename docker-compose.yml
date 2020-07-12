@@ -4,16 +4,21 @@ services:
     image: boardgames:latest
     command: sh -c "python manage.py makemigrations && 
                     python manage.py migrate && 
-                    gunicorn Site.wsgi:application --bind 0.0.0.0:8001"
+                    python manage.py collectstatic --no-input && 
+                    gunicorn Site.wsgi:application --bind 0.0.0.0:8000"
     expose:
-      - 8001
+      - 8000
     volumes:
       - ./src/Site:/usr/local/app
     container_name: boardgames
+
   nginx:
     image: nginxcustom:latest
     ports:
-      - 8001:80
+      - 8000:80
     depends_on:
       - boardgames
+    volumes:
+      - ./src/Site/static/:/usr/local/app/static
     container_name: nginx
+

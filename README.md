@@ -1,17 +1,19 @@
 # Board Games
-
 Board Games is a Python library for various types of games: Chess
 
 ## Installation
-
 Use the package manager [pipenv](https://pypi.org/project/pipenv/) to install dependencies.
 
 ```bash
 pipenv install --dev
 ```
 
-## Usage
+## Dev
+Untrack settings.py
+git update-index --assume-unchanged path/to/file
+git update-index --no-assume-unchanged path/to/file
 
+## Usage
 ```bash
 Mac:
 python3 -m pipenv shell
