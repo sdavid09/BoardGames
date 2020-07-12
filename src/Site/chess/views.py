@@ -9,7 +9,7 @@ def create_player_one_pieces():
         Piece(name='Rook', icon=u'\u2656', color='white'),
         Piece(name='Knight', icon=u'\u2658', color='white'),
         Piece(name='Bishop', icon=u'\u2657', color='white'),
-        Piece(name='Queen', icon=u'\u2657', color='white'),
+        Piece(name='Queen', icon=u'\u2655', color='white'),
         Piece(name='King', icon=u'\u2654', color='white'),
         Piece(name='Bishop', icon=u'\u2657', color='white'),
         Piece(name='Knight', icon=u'\u2658', color='white'),

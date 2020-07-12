@@ -8,6 +8,7 @@ nose = "*"
 
 [packages]
 django = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.5"
