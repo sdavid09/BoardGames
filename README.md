@@ -1,5 +1,7 @@
 # Board Games
-Board Games is a Python library for various types of games: Chess
+Board Games is a web app to play your favorite games! 
+Supported Games:
+    * Chess
 
 ## Installation
 Use the package manager [pipenv](https://pypi.org/project/pipenv/) to install dependencies.
@@ -24,6 +26,8 @@ python3 -m pipenv shell
 nosetests -v
 ```
 ## Contributing
+* Shobin David
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
