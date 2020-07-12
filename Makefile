@@ -6,3 +6,5 @@ clean:
 	docker rmi nginxcustom
 deploy:
 	docker-compose up -d
+dev:
+	python3 -m pipenv run python ./src/Site/manage.py runserver

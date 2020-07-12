@@ -9,16 +9,23 @@ Use the package manager [pipenv](https://pypi.org/project/pipenv/) to install de
 ```bash
 pipenv install --dev
 ```
-
+## Build 
+```bash
+make build
+```
 ## Dev
+Run Django Dev Server : ( python manage.py runserver )
+```bash
+make dev
+```
 Untrack settings.py
 git update-index --assume-unchanged path/to/file
 git update-index --no-assume-unchanged path/to/file
 
-## Usage
+## Deploy
+Run docker-compose
 ```bash
-Mac:
-python3 -m pipenv shell
+make deploy
 
 ```
 ## Tests
