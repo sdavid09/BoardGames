@@ -4,11 +4,8 @@ from src.Model.ChessBoard import ChessBoard
 from src.Model.Player import Player
 
 class Chess:
-    def __init__(self, chessboard: ChessBoard, 
-                       player_one: Player, player_two: Player):
+    def __init__(self, chessboard: ChessBoard):
         self.chessboard = chessboard
-        self.player_one = player_one
-        self.player_two = player_two
 
     def setup(self):
 
@@ -27,7 +24,7 @@ class Chess:
         Knight("white", u'\u2658'),
         Rook("white", u'\u2656')]
         self.chessboard[1] = [Pawn("white", u'\u2659')] * len(self.chessboard[1])
-
+``
     def add_second_player_pieces(self):
 
         self.chessboard[7] = [

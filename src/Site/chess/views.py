@@ -58,22 +58,18 @@ def setup_pieces():
     myboard.save()
     for piece in Piece.objects.all():
         myboard.pieces.add(piece)
-    
     myboard.save()
     game = Game.objects.create(session="abc", player_one=player1, player_two=player2, board=myboard)
 
+# def index(request):
+#     setup_pieces()
+#     game = get_object_or_404(Game, pk=1)
+#     context = {'x_header': 'A B C D E F G H'.split(" "),
+#                'y_header': list(range(8, 0, -1)),
+#                'game': game,
+#                'pieces': game.board.pieces.all()}
+#     return render(request, 'chess/index.html')
 
 def index(request):
-    # setup_pieces()
-    # game = get_object_or_404(Game, pk=1)
-    # context = {'x_header': 'A B C D E F G H'.split(" "), 
-    #            'y_header': list(range(8, 0, -1)),
-    #            'game': game,
-    #            'pieces': game.board.pieces.all()}
     return render(request, 'chess/index.html')
-
-
-# class DetailView(generic.DetailView):
-#     model = Game
-#     template_name = 'chess/index.html'
 

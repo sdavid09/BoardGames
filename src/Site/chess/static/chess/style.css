@@ -7,7 +7,9 @@ body {
 .chess-board td { border: 2.5px solid; width: 3em; height: 3em; }
 .chess-board .light { background: #eeeed2 }
 .chess-board .dark { background:#769656}
-
+td, th {
+    padding: 0px 2px;
+}
 h1 {
     color: white;
 }
@@ -15,23 +17,23 @@ h1 {
 #container {
     margin: 0 auto;
     max-width: 400px;
-} 
+}
 .player-one-pieces {
     color: rgb(239, 245, 248);
     text-shadow: 1px 2px #494949;
     margin : 0 auto;
-    width: 3em;
-    height: 3em;
     text-align: center;
 
+}
+table {
+    border-spacing: 3px;
+    table-layout: fixed;
 }
 
 .player-two-pieces {
     color: #393432;
     text-shadow: 1px 2px #d8d0ce;
     margin : 0 auto;
-    width: 3em;
-    height: 3em;
     text-align: center;
 }
 
@@ -50,7 +52,7 @@ tbody > tr > th > th{
 }
 
   .table-hover > tbody > tr > td:hover {
-    border: 3px solid;
+    border: 1px solid;
     border-color: #52A96F;
     background-color:  #52E683;
   }
