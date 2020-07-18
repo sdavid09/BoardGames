@@ -8,3 +8,5 @@ deploy:
 	docker-compose up -d
 dev:
 	python3 -m pipenv run python ./src/Site/manage.py runserver
+test:
+	python .\src\Site\manage.py test chess -v 2

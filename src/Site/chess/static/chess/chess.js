@@ -1,7 +1,7 @@
-import { Piece, Rook } from "./piece.js"
-let pc = new Rook;
-console.log(pc.icon);
-console.log("nEW");
+import { Piece, Rook, Knight, Bishop, Queen, King, Pawn } from "./piece.js"
+import { Board } from "./board.js"
+let pc = new Board();
+console.log(pc.grid);
 
 function addFirstPlayerPieces() {
     let piece_row = ['A1', 'B1', 'C1', 'D1', 'E1', 'F1', 'G1', 'H1']

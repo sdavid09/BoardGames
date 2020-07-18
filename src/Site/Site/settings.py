@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'chess.apps.ChessConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -68,11 +69,30 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Site.wsgi.application'
+# WSGI_APPLICATION = 'Site.wsgi.application'
+ASGI_APPLICATION = "Site.routing.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+
+
+# Development
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    }
+}
+
+# # Production
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#     },
+# }
 
 DATABASES = {
     'default': {

@@ -9,6 +9,8 @@ nose = "*"
 [packages]
 django = "*"
 gunicorn = "*"
+channels = "*"
+channels-redis = "*"
 
 [requires]
-python_version = "3.5"
+python_version = "3.5+"
