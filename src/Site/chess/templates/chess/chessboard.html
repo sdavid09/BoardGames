@@ -1,0 +1,110 @@
+{% extends 'chess/base.html' %}
+
+{% block content %}
+<div id="container">
+    {{ game.player_one.name }}
+    <table class="chess-board table-hover">
+        <tbody>
+            <tr>
+                <th></th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+            </tr>
+                <tr>
+                    <th>8</th>
+                        <td class="light" id="A8"><span></span></td>
+                        <td class="dark" id="B8"><span></span></td>
+                        <td class="light" id="C8"><span></span></td>
+                        <td class="dark" id="D8"><span></span></td>
+                        <td class="light" id="E8"><span></span></td>
+                        <td class="dark" id="F8"><span></span></td>
+                        <td class="light" id="G8"><span></span></td>
+                        <td class="dark" id="H8"><span></span></td>
+                </tr>
+                <tr>
+                    <th>7</th>
+                        <td class="dark" id="A7"><span></span></td>
+                        <td class="light" id="B7"><span></span></td>
+                        <td class="dark" id="C7"><span></span></td>
+                        <td class="light" id="D7"><span></span></td>
+                        <td class="dark" id="E7"><span></span></td>
+                        <td class="light" id="F7"><span></span></td>
+                        <td class="dark" id="G7"><span></span></td>
+                        <td class="light" id="H7"><span></span></td>
+                </tr>
+                <tr>
+                    <th>6</th>
+                        <td class="light" id="A6"><span></span></td>
+                        <td class="dark" id="B6"><span></span></td>
+                        <td class="light" id="C6"><span></span></td>
+                        <td class="dark" id="D6"><span></span></td>
+                        <td class="light" id="E6"><span></span></td>
+                        <td class="dark" id="F6"><span></span></td>
+                        <td class="light" id="G6"><span></span></td>
+                        <td class="dark" id="H6"><span ></span></td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                        <td class="dark" id="A5"><span></span></td>
+                        <td class="light" id="B5"><span></span></td>
+                        <td class="dark" id="C5"><span></span></td>
+                        <td class="light" id="D5"><span></span></td>
+                        <td class="dark" id="E5"><span></span></td>
+                        <td class="light" id="F5"><span></span></td>
+                        <td class="dark" id="G5"><span></span></td>
+                        <td class="light" id="H5"><span></span></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                        <td class="light" id="A4"><span></span></td>
+                        <td class="dark" id="B4"><span></span></td>
+                        <td class="light" id="C4"><span></span></td>
+                        <td class="dark" id="D4"><span></span></td>
+                        <td class="light" id="E4"><span></span></td>
+                        <td class="dark" id="F4"><span></span></td>
+                        <td class="light" id="G4"><span></span></td>
+                        <td class="dark" id="H4"><span></span></td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                        <td class="dark" id="A3"><span></span></td>
+                        <td class="light" id="B3"><span></span></td>
+                        <td class="dark" id="C3"><span></span></td>
+                        <td class="light" id="D3"><span></span></td>
+                        <td class="dark" id="E3"><span></span></td>
+                        <td class="light" id="F3"><span></span></td>
+                        <td class="dark" id="G3"><span></span></td>
+                        <td class="light" id="H3"><span></span></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                        <td class="light" id="A2"><span></span></td>
+                        <td class="dark" id="B2"><span></span></td>
+                        <td class="light" id="C2"><span></span></td>
+                        <td class="dark" id="D2"><span></span></td>
+                        <td class="light" id="E2"><span></span></td>
+                        <td class="dark" id="F2"><span></span></td>
+                        <td class="light" id="G2"><span></span></td>
+                        <td class="dark" id="H2"><span></span></td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                        <td class="dark" id="A1"><span></span></td>
+                        <td class="light" id="B1"><span></span></td>
+                        <td class="dark" id="C1"><span></span></td>
+                        <td class="light" id="D1"><span></span></td>
+                        <td class="dark" id="E1"><span></span></td>
+                        <td class="light" id="F1"><span></span></td>
+                        <td class="dark" id="G1"><span></span></td>
+                        <td class="light" id="H1"><span ></span></td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

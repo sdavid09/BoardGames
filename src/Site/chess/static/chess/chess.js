@@ -16,7 +16,7 @@ function addFirstPlayerPieces() {
     pawns_row.forEach(element => {
        let pawn = document.querySelector(`#${element}`)
         pawn.classList.add("player-one-pieces")
-        pawn.textContent = '\u2659'; 
+        pawn.textContent = '\u2659';
     });
 }
 function addSecondPlayerPieces() {
@@ -32,38 +32,41 @@ function addSecondPlayerPieces() {
     pawns_row.forEach(element => {
       let pawn = document.querySelector(`#${element}`)
         pawn.classList.add("player-two-pieces")
-        pawn.textContent = '\u265F'; 
+        pawn.textContent = '\u265F';
     });
 }
 addFirstPlayerPieces();
 addSecondPlayerPieces()
 
-let table = document.querySelector("table")
-let firstPick = false;
-let secondPick;
-let turn = false;
+// let table = document.querySelector("table")
+// let firstPick = false;
+// let secondPick;
+// let turn = false;
 
-table.addEventListener("click", function(e){
+// table.addEventListener("click", function(e){
+//     console.log("CLICKED");
 
-    if(event.target.matches('td') && !turn && !firstPick && event.target.textContent.length){
-       let all_classes = event.target.classList
-       let player_class = all_classes[1]
-        firstPick = {"icon" : event.target.textContent,
-                    "class": player_class,
-                    "element": event.target}
-        turn = true;
-    }
-    else if (event.target.matches('td') && turn && firstPick ) { 
-        if(event.target.textContent !== firstPick["element"].textContent){
-            let all_classes = event.target.classList
-            if( all_classes.length > 1 ){
-                event.target.classList.remove(all_classes[1])
-            }
-            event.target.textContent = firstPick["icon"];
-            event.target.classList.add(firstPick["class"])
-            firstPick["element"].textContent = "";
-        }
-        firstPick = false;
-        turn = false;
-    }
-});
+//     if(event.target.matches('td') && !turn && !firstPick && event.target.textContent.length){
+//        let all_classes = event.target.classList
+//        let player_class = all_classes[1]
+//         firstPick = {"icon" : event.target.textContent,
+//                     "class": player_class,
+//                     "element": event.target}
+//         turn = true;
+//     }
+//     else if (event.target.matches('td') && turn && firstPick ) { 
+//         if(event.target.textContent !== firstPick["element"].textContent){
+//             let all_classes = event.target.classList
+//             if( all_classes.length > 1 ){
+//                 event.target.classList.remove(all_classes[1])
+//             }
+//             event.target.textContent = firstPick["icon"];
+//             event.target.classList.add(firstPick["class"])
+//             firstPick["element"].textContent = "";
+//         }
+//         firstPick = false;
+//         turn = false;
+//     }
+// });
+
+// export {table};

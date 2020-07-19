@@ -24,16 +24,29 @@
     {% block content %}
     {% endblock %}
     <script type="module" src="{% static 'chess/chess.js' %}"></script>
-    <script>
+    <script type="module">
+
         let endpoint = window.location.protocol == 'https:' ? 'wss://' : 'ws://' + window.location.host + window.location.pathname
         let socket = new WebSocket(endpoint);
-        socket.onmessage = function(e){
-            console.log("message",e)
-        }
         socket.onopen= function(e){
-
-            console.log("open", e)
+                console.log("open", e)
         }
+        socket.onmessage = function(e){
+            console.log("message", e);
+
+        }
+        let table = document.querySelector("table")
+        table.addEventListener("click", function(event){
+            console.log("CLICKED")
+            if(event.target.closest('td')){
+
+
+                let board = {'message': event.target.textContent}
+                socket.send(JSON.stringify(board))
+
+    }
+    });
+
 
         socket.onerror= function(e){
             console.log("error", e)
