@@ -1,8 +1,18 @@
 {% extends 'chess/base.html' %}
 
 {% block content %}
+<script>
+    var pieces=[
+        {% for piece in boardsquares.all %}
+            {
+                    "square" : "{{piece.column}}{{piece.row}}",
+                    "icon" : "{{piece.piece.icon}}",
+
+            } {% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+</script>
 <div id="container">
-    {{ game.player_one.name }}
     <table class="chess-board table-hover">
         <tbody>
             <tr>

@@ -1,7 +1,5 @@
 import { Piece, Rook, Knight, Bishop, Queen, King, Pawn } from "./piece.js"
-import { Board } from "./board.js"
-let pc = new Board();
-console.log(pc.grid);
+
 
 function addFirstPlayerPieces() {
     let piece_row = ['A1', 'B1', 'C1', 'D1', 'E1', 'F1', 'G1', 'H1']
@@ -35,8 +33,12 @@ function addSecondPlayerPieces() {
         pawn.textContent = '\u265F';
     });
 }
-addFirstPlayerPieces();
-addSecondPlayerPieces()
+pieces.forEach((element)=>{
+    let square = document.querySelector(`#${element.square}`)
+    square.textContent=`${element.icon}`
+});
+// addFirstPlayerPieces();
+// addSecondPlayerPieces()
 
 // let table = document.querySelector("table")
 // let firstPick = false;

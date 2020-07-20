@@ -7,5 +7,9 @@ from .models import *
 
 def index(request):
     Game.create_new("John", "Jane")
-    return render(request, 'chess/chessboard.html')
+    game = get_object_or_404(Game, id=1)
+    boardsquares = BoardSquare.objects.filter(board=game.board)
+    
+    context = {"boardsquares": boardsquares}
+    return render(request, 'chess/chessboard.html', context)
 

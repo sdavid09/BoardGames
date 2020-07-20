@@ -125,13 +125,15 @@ class Game(models.Model):
         game.save()
 
         first_player_board_pieces = [BoardSquare.objects.filter(board=board.id, row=row, column=col)
-                            for col in Board.columns for row in [1,2]]
+                            for row in [1,2] for col in Board.columns]
+
         # add pieces to board piece
         for row, piece in list(zip(first_player_board_pieces, player_one_pieces)):
+            # print("Row:{} piece: {}".format(row.values(), piece))
             row.update(piece=piece)
 
         second_player_board_pieces = [BoardSquare.objects.filter(board=board.id, row=row, column=col)
-                            for col in Board.columns for row in [8,7]]
+                            for row in [8,7] for col in Board.columns]
         for row, piece in list(zip(second_player_board_pieces, player_two_pieces)):
             row.update(piece=piece)
 
