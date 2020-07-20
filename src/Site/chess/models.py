@@ -94,14 +94,18 @@ class Game(models.Model):
 
     @staticmethod
     def create_new(player_one_name, player_two_name):
+        board = Board.create_new()
         player_one_pieces = Game.create_player_one_pieces()
         player1 = Player(
             name=player_one_name,
         )
         player1.save()
+
         for piece in player_one_pieces:
             piece.save()
             player1.pieces.add(piece)
+            board.pieces.add(piece)
+
         player_two_pieces = Game.create_player_two_pieces()
         player2 = Player(
             name=player_two_name,
@@ -110,7 +114,8 @@ class Game(models.Model):
         for piece in player_two_pieces:
             piece.save()
             player2.pieces.add(piece)
-        board = Board.create_new()
+            board.pieces.add(piece)
+
         game = Game(
             player_one = player1,
             player_two = player2,
@@ -118,3 +123,16 @@ class Game(models.Model):
             current_turn = player1
         )
         game.save()
+
+        first_player_board_pieces = [BoardSquare.objects.filter(board=board.id, row=row, column=col)
+                            for col in Board.columns for row in [1,2]]
+        # add pieces to board piece
+        for row, piece in list(zip(first_player_board_pieces, player_one_pieces)):
+            row.update(piece=piece)
+
+        second_player_board_pieces = [BoardSquare.objects.filter(board=board.id, row=row, column=col)
+                            for col in Board.columns for row in [8,7]]
+        for row, piece in list(zip(second_player_board_pieces, player_two_pieces)):
+            row.update(piece=piece)
+
+
