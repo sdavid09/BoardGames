@@ -8,54 +8,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'chess/style.css' %}">
-    <!-- <script>
-        var pieces=[
-            {% for piece in boardsquares.all %}
-                {
-                        "square" : "{{piece.column}}{{piece.row}}",
-                        "icon" : "{{piece.piece.icon}}",
-    
-                } {% if not loop.last %},{% endif %}
-            {% endfor %}
-        ];
-    </script> -->
 </head>
 <body>
     {% block content %}
     {% endblock %}
     <script type="module" src="{% static 'chess/chess.js' %}"></script>
-    <script type="module">
-
-        let endpoint = window.location.protocol == 'https:' ? 'wss://' : 'ws://' + window.location.host + window.location.pathname
-        let socket = new WebSocket(endpoint);
-        socket.onopen= function(e){
-            console.log("open", e)
-        }
-        socket.onmessage = function(e){
-            console.log("message", e);
-
-        }
-        let table = document.querySelector("table")
-        table.addEventListener("click", function(event){
-            console.log("CLICKED")
-            if(event.target.closest('td')){
-
-
-                let board = {'message': event.target.textContent}
-                socket.send(JSON.stringify(board))
-
-    }
-    });
-
-
-        socket.onerror= function(e){
-            console.log("error", e)
-        }
-
-        socket.onclose= function(e){
-            console.log("close", e)
-        }
-
-    </script>
 </body>
 </html>
