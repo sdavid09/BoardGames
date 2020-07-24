@@ -2,7 +2,7 @@ import { Piece, Rook, Knight, Bishop, Queen, King, Pawn } from "./piece.js"
 
 pieces.forEach(element => {
     let boardSquare = document.querySelector(`#${element.square}`)
-    boardSquare.innerHTML=`<span>${element.icon}</span>`;
+    boardSquare.innerHTML=`<span id=${element.id}>${element.icon}</span>`;
 });
 
 let endpoint = window.location.protocol == 'https:' ? 'wss://' : 'ws://' + window.location.host + window.location.pathname
@@ -10,19 +10,44 @@ let socket = new WebSocket(endpoint);
 socket.onopen= function(e){
     console.log("open", e)
 }
+
 socket.onmessage = function(e){
     console.log("message", e);
+    let piece = JSON.parse(e.data)
+    let firstSquare = document.querySelector(`#${piece.message.firstPiece.square}`)
+    let secondSquare = document.querySelector(`#${piece.message.secondPiece.square}`)
+    secondSquare.textContent = firstSquare.textContent
+    firstSquare.textContent = ""
+    console.log(piece)
+    console.log(firstSquare);
 
 }
+
 let table = document.querySelector("table")
+let firstClick = false;
+let selectedFirstPiece;
+let selectedSecondPiece;
 table.addEventListener("click", function(event){
-    console.log("CLICKED")
-    if(event.target.closest('td')){
 
-        let board = {'message': event.target.textContent}
-        socket.send(JSON.stringify(board))
+    if(event.target.closest('td') && !firstClick ){
+        console.log("First Selected")
+        if (event.target.textContent){
+            firstClick = true;
 
-}
+            selectedFirstPiece = {'piece': event.target.textContent,
+            'square': event.target.getAttribute("id"),
+            "id": event.target.children[0].getAttribute("id")}
+        }
+    }
+    else if(event.target.closest('td') && firstClick ){
+        console.log("Second Selected")
+        firstClick = false;
+        selectedSecondPiece =  {'piece': event.target.textContent,
+        'square': event.target.getAttribute("id"),
+        "id": event.target.children[0].getAttribute("id")}
+        socket.send(JSON.stringify({'firstPiece': selectedFirstPiece, 'secondPiece': selectedSecondPiece}))
+    }
+   
 });
 
 
