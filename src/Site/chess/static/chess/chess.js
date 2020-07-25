@@ -14,13 +14,15 @@ socket.onopen= function(e){
 socket.onmessage = function(e){
     console.log("message", e);
     let piece = JSON.parse(e.data)
+    let firstPiece = piece.message.firstPiece
+    let secondPiece = piece.message.secondPiece
     let firstSquare = document.querySelector(`#${piece.message.firstPiece.square}`)
     let secondSquare = document.querySelector(`#${piece.message.secondPiece.square}`)
-    secondSquare.textContent = firstSquare.textContent
-    firstSquare.textContent = ""
+    secondSquare.innerHTML = `<span id=${firstPiece.id}>${firstPiece.piece}</span>`
+    firstSquare.children[0].removeAttribute("id")
+    firstSquare.children[0].textContent=""
     console.log(piece)
     console.log(firstSquare);
-
 }
 
 let table = document.querySelector("table")
