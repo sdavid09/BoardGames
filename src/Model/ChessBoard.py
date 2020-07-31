@@ -47,6 +47,20 @@ class ChessBoard:
             row, col = position
         return row, col
 
+    def convert_to_chess_notation(self, position):
+        row, col = position
+        for letter, num in self.row.items():
+            if num == row:
+                row = letter
+                break
+
+        for num, num_map in self.col.items():
+            if num_map == col:
+                col = num
+                break
+
+        return row, col
+
     def __len__(self):
         return len(self.board)
 

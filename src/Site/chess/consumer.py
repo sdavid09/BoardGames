@@ -38,8 +38,8 @@ class GameConsumer(AsyncConsumer):
                 "type": "custom_game",
                 "text": json.dumps(piece)
              }
-
         )
+
     @sync_to_async
     def move_piece(self, first_piece, second_piece):
         game = get_object_or_404(Game, id=1)
@@ -56,7 +56,6 @@ class GameConsumer(AsyncConsumer):
 
 
     async def custom_game(self, event):
-        # print('message', event)
         await self.send({
             "type": "websocket.send",
             "text": event['text']

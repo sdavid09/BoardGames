@@ -50,23 +50,24 @@ class Game(models.Model):
 
     @staticmethod
     def create_player_one_pieces():
+
         pieces = [
-            Piece(name='Rook', icon=u'\u2656', color='white'),
-            Piece(name='Knight', icon=u'\u2658', color='white'),
-            Piece(name='Bishop', icon=u'\u2657', color='white'),
-            Piece(name='Queen', icon=u'\u2655', color='white'),
-            Piece(name='King', icon=u'\u2654', color='white'),
-            Piece(name='Bishop', icon=u'\u2657', color='white'),
-            Piece(name='Knight', icon=u'\u2658', color='white'),
-            Piece(name='Rook', icon=u'\u2656', color='white'),
-            Piece(name='Pawn', icon= u'\u2659', color='white'),
-            Piece(name='Pawn', icon= u'\u2659', color='white'),
-            Piece(name='Pawn', icon= u'\u2659', color='white'),
-            Piece(name='Pawn', icon= u'\u2659', color='white'),
-            Piece(name='Pawn', icon= u'\u2659', color='white'),
-            Piece(name='Pawn', icon= u'\u2659', color='white'),
-            Piece(name='Pawn', icon= u'\u2659', color='white'),
-            Piece(name='Pawn', icon= u'\u2659', color='white'),
+            Piece(name='Rook', icon=u'\u265C', color='white'),
+            Piece(name='Knight', icon=u'\u265E', color='white'),
+            Piece(name='Bishop', icon=u'\u265D', color='white'),
+            Piece(name='Queen', icon=u'\u265B', color='white'),
+            Piece(name='King', icon=u'\u265A', color='white'),
+            Piece(name='Bishop', icon=u'\u265D', color='white'),
+            Piece(name='Knight', icon=u'\u265E', color='white'),
+            Piece(name='Rook', icon=u'\u265C', color='white'),
+            Piece(name='Pawn', icon= u'\u265F', color='white'),
+            Piece(name='Pawn', icon= u'\u265F', color='white'),
+            Piece(name='Pawn', icon= u'\u265F', color='white'),
+            Piece(name='Pawn', icon= u'\u265F', color='white'),
+            Piece(name='Pawn', icon= u'\u265F', color='white'),
+            Piece(name='Pawn', icon= u'\u265F', color='white'),
+            Piece(name='Pawn', icon= u'\u265F', color='white'),
+            Piece(name='Pawn', icon= u'\u265F', color='white'),
         ]
         return pieces
 
@@ -89,7 +90,7 @@ class Game(models.Model):
             Piece(name='Pawn', icon= u'\u265F', color='black'),
             Piece(name='Pawn', icon= u'\u265F', color='black'),
             Piece(name='Pawn', icon= u'\u265F', color='black'),
-    ]
+        ]
         return pieces
 
     @staticmethod
@@ -129,7 +130,6 @@ class Game(models.Model):
 
         # add pieces to board piece
         for row, piece in list(zip(first_player_board_pieces, player_one_pieces)):
-            # print("Row:{} piece: {}".format(row.values(), piece))
             row.update(piece=piece)
 
         second_player_board_pieces = [BoardSquare.objects.filter(board=board.id, row=row, column=col)

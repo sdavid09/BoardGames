@@ -1,5 +1,6 @@
 body {
     background-color: #25282C;
+    font-family: "Times New Roman", Times, serif;
 }
 
 .chess-board { border-spacing: 0; border-collapse: collapse; }
@@ -19,10 +20,11 @@ h1 {
     max-width: 400px;
 }
 .player-one-pieces {
-    color: rgb(239, 245, 248);
-    text-shadow: 1px 2px #494949;
+    color: #f1eeee;
+    text-shadow: 1px 2px 0px #494949;
     margin : 0 auto;
     text-align: center;
+    font-size: large;
 
 }
 table {
@@ -32,7 +34,7 @@ table {
 
 .player-two-pieces {
     color: #393432;
-    text-shadow: 1px 2px #d8d0ce;
+    text-shadow: 2px 2px 0px #d8d0ce;
     margin : 0 auto;
     text-align: center;
 }

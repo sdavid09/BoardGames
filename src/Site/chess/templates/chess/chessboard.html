@@ -12,6 +12,27 @@
             } {% if not loop.last %},{% endif %}
         {% endfor %}
     ];
+    var p1Pieces = [
+        {% for piece in p1_pieces.all %}
+        {
+            "id": "{{piece.id}}",
+            "name": "{{piece.name}}",
+            "icon": "{{piece.icon}}",
+            "color": "{{piece.color}}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+    var p2Pieces = [
+        {% for piece in p2_pieces.all %}
+        {
+            "id": "{{piece.id}}",
+            "name": "{{piece.name}}",
+            "icon": "{{piece.icon}}",
+            "color": "{{piece.color}}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+    var current_turn = "{{current_turn}}"
 </script>
 <div id="container">
     <table class="chess-board table-hover">
