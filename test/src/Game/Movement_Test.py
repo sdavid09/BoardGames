@@ -18,3 +18,13 @@ class MovementTest(unittest.TestCase):
         chessboard = ChessBoard()
         movement = Movement(chessboard)
         self.assertEqual(movement.horizontal_movement_unlimited("D7"), ["A7", "B7", "C7", "E7", "F7", "G7", "H7"])
+
+    def test_right_diagonal_movement(self):
+        chessboard = ChessBoard()
+        movement = Movement(chessboard)
+        self.assertEqual(movement.right_diagonal_movement_unlimited("D7"), ["C8", "E6", "F5", "G4", "H3"])
+
+    def test_left_diagonal_movement(self):
+        chessboard = ChessBoard()
+        movement = Movement(chessboard)
+        self.assertEqual(movement.left_diagonal_movement_unlimited("D7"), ["E8", "C6", "B5", "A4"])
