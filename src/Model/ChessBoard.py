@@ -1,28 +1,12 @@
 from .Grid import Grid
 
-whitepieces = {
-    'King'   : u'\u2654',
-    'Queen'  : u'\u2655',
-    'Rook'   : u'\u2656',
-    'Bishop' : u'\u2657',
-    'Knight' : u'\u2658',
-    'Pawn'   : u'\u2659',
-}
-
-blackpieces = {
-    'King'   : u'\u265A',
-    'Queen'  : u'\u265B',
-    'Rook'   : u'\u265C',
-    'Bishop' : u'\u265D',
-    'Knight' : u'\u265E',
-    'Pawn'   : u'\u265F',
-}
 
 class ChessBoard:
+    row = {'A': 0, 'B': 1, 'C': 2,'D': 3, 'E': 4, 'F': 5,'G': 6, 'H': 7}
+    col = {1:7, 2:6, 3:5, 4:4, 5:3, 6:2, 7:1, 8:0}
+
     def __init__(self):
         self.board = Grid(8, 8, "*")
-        self.row = {'A': 0, 'B': 1, 'C': 2,'D': 3, 'E': 4, 'F': 5,'G': 6, 'H': 7}
-        self.col = {1:7, 2:6, 3:5, 4:4, 5:3, 6:2, 7:1, 8:0}
 
     def __setitem__(self, position, value):
         row, col = self.check_chess_notation(position)
@@ -38,7 +22,8 @@ class ChessBoard:
         else:
             return self.board[position]
 
-    def check_chess_notation(self, position):
+    @staticmethod
+    def check_chess_notation(position):
         """ Check if first character is letter, Second is number and  """
         row, col = '', ''
         if ( len(str(position)) == 2 and position[0].isalpha()
@@ -47,14 +32,15 @@ class ChessBoard:
             row, col = position
         return row, col
 
-    def convert_to_chess_notation(self, position):
+    @classmethod
+    def convert_to_chess_notation(cls, position):
         row, col = position
-        for letter, num in self.row.items():
+        for letter, num in cls.row.items():
             if num == row:
                 row = letter
                 break
 
-        for num, num_map in self.col.items():
+        for num, num_map in cls.col.items():
             if num_map == col:
                 col = num
                 break
