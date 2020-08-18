@@ -1,2 +1,5 @@
 django==2.2.14
-gunicorn
+channels
+channels-redis
+uvicorn
+
