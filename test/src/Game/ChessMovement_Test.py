@@ -20,3 +20,10 @@ class ChessMovementTest(unittest.TestCase):
         squares = bishop_movement.movement("D7")
         self.assertEqual(squares, ["E8", "C6", "B5", "A4", "C8", "E6", "F5", "G4", "H3"])
 
+    def test_queen_movement(self):
+        queen_movement = QueenMovement()
+        squares = queen_movement.movement("A8")
+        self.assertEqual(squares, ["B7", "C6", "D5", "E4", "F3", "G2", "H1",
+                                   "A7", "A6", "A5", "A4", "A3", "A2", "A1",
+                                   "B8", "C8", "D8", "E8", "F8", "G8", "H8" ])
+

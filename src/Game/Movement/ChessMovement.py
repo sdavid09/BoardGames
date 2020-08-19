@@ -1,6 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from src.Model.ChessBoard import ChessBoard
-from src.Game.Movement.Movement import Movement
+from src.Game.Movement.Directions import *
 
 class ChessMovement(metaclass=ABCMeta):
 
@@ -14,7 +14,7 @@ class ChessMovement(metaclass=ABCMeta):
 
 class RookMovement(ChessMovement):
     def movement(self, location):
-        movement = Movement()
+        movement = CardinalDirections()
         squares = movement.horizontal_and_vertical_movement_unlimited(location)
         return self.format_to_chess_notation(squares)
 
@@ -24,13 +24,17 @@ class KnightMovement(ChessMovement):
 
 class BishopMovement(ChessMovement):
     def movement(self, location):
-        movement = Movement()
+        movement = OrdinalDirections()
         squares = movement.right_and_left_diagonal_movement_unlimited(location)
         return self.format_to_chess_notation(squares)
 
 class QueenMovement(ChessMovement):
-    def movement(self):
-        pass
+    def movement(self, location):
+        cardinal_movement = CardinalDirections()
+        ordinal_movement = OrdinalDirections()
+        squares = ordinal_movement.right_and_left_diagonal_movement_unlimited(location)
+        squares += cardinal_movement.horizontal_and_vertical_movement_unlimited(location)
+        return self.format_to_chess_notation(squares)
 
 class KingMovement(ChessMovement):
     def movement(self):

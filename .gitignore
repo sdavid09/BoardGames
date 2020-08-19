@@ -5,3 +5,4 @@
 *.sqlite3
 src/Site/Site/settings.py
 src/Site/static/
+.vscode/*

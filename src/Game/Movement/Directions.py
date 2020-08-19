@@ -5,7 +5,7 @@ from src.Model.Player import Player
 from .SubMovement import *
 check_chess_notation = ChessBoard.check_chess_notation
 
-class Movement:
+class CardinalDirections:
     def __init__(self):
         self.chessboard = ChessBoard()
 
@@ -32,6 +32,8 @@ class Movement:
         horizontal_squares = self.horizontal_movement_unlimited(current_location)
         return vertical_squares + horizontal_squares
 
+class OrdinalDirections:
+
     def right_and_left_diagonal_movement_unlimited(self, current_location, count=None):
         right_squares = self.right_diagonal_movement_unlimited(current_location, count)
         left_squares = self.left_diagonal_movement_unlimited(current_location, count)
@@ -47,6 +49,3 @@ class Movement:
 
     def left_diagonal_movement_unlimited(self, current_location, count=None):
         return lower_left(current_location, count) +  upper_right(current_location, count)
-
-
-

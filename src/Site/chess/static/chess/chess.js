@@ -6,7 +6,6 @@ pieces.forEach(element => {
         boardSquare.children[0].setAttribute("id", `piece-${element.id}`)
         boardSquare.children[0].textContent=`${element.icon}`;
     }
-    // boardSquare.innerHTML=`<span id=piece-${element.id}>${element.icon}</span>`;
 });
 p1Pieces.forEach(element=>{
     let p1piece = document.querySelector(`#piece-${element.id}`);
